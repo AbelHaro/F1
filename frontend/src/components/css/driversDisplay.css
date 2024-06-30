@@ -41,3 +41,12 @@
     padding: 4px;
     box-sizing: border-box;
 }
+
+.no-blue {
+    text-decoration: none;
+    color: #000;
+}
+
+.no-blue:hover {
+    scale: 1.1;
+}

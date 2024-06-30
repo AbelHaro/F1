@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DriverStats } from '../DriverStats/DriverStats.jsx'
 import DatalistInput from 'react-datalist-input'//https://github.com/andrelandgraf/react-datalist-input
 import 'react-datalist-input/dist/styles.css'
@@ -26,7 +26,7 @@ export function Drivers() {
                 })
                 .catch(error => console.error('Error fetching nationalities:', error))
         }
-    }, [])
+    },)
 
     useEffect(() => {
         if (drivers.length === 0) {
@@ -38,7 +38,7 @@ export function Drivers() {
                 })
                 .catch(error => console.error('Error fetching drivers:', error))
         }
-    }, [])
+    },)
 
     function setSelectedNameDefault() {setSelectedName('')}
 

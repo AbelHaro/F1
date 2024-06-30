@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../css/driversDisplay.css'
 
 // Stats to filter
@@ -14,6 +14,7 @@ const STATS_LABELS = {
 
 const URL_SEARCH_BY_NATIONALITY = 'http://localhost:5000/drivers/nationalities/'
 const URL_SEARCH_BY_NAME = 'http://localhost:5000/drivers/names/'
+const GO_TO_INDIVIDUAL_DRIVER = 'http://localhost:5173/drivers/'
 
 export function DriverStats({ selectedNationality, selectedName }) {
   const [driverStats, setDriverStats] = useState([])
@@ -56,10 +57,14 @@ export function DriverStats({ selectedNationality, selectedName }) {
 
   // Mapping driver stats outside of return
   const allDrivers = driverStats.map((driver, index) => (
-    <div key={`${driver.driver_id}-${index}`} className="driver-row">
+    <div key={`${driver.id}-${index}`} className="driver-row">
       {STATS_TO_FILTER.map(stat => (
-        <p key={`${driver.driver_id}-${stat}`} className='stat-value'>
-          {formatStatValue(stat, driver[stat], driver['total_race_entries'])}
+        <p key={`${driver.id}-${stat}`} className='stat-value'>
+          {stat === 'name' ? (
+            <a href={`${GO_TO_INDIVIDUAL_DRIVER}${driver.id}`} className='no-blue'>{driver[stat]}</a>
+          ) : (
+            formatStatValue(stat, driver[stat], driver['total_race_entries'])
+          )}
         </p>
       ))}
     </div>

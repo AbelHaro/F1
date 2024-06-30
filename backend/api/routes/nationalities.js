@@ -4,7 +4,9 @@ import { db } from '../dbconnection.js'
 export const nationalitiesRouter = Router()
 
 nationalitiesRouter.get('/', (req, res) => {
-    console.log(`${new Date().toISOString()} DEBUG: GET /nationalities/all`)
+    
+    console.log(`${new Date()} DEBUG: GET /nationalities/all`)
+
     db.all('SELECT id FROM country INTERSECT SELECT DISTINCT nationality_country_id FROM driver;', (err, rows) => {
         if (err) {
             console.log(err)
