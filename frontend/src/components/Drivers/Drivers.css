@@ -1,0 +1,64 @@
+.drivers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.input-main-container {
+    display: flex;
+    flex-direction: row;
+    justify-items: left;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: 'Formula1-Regular', sans-serif;
+    border: 1px solid var(gray);
+    height: 70px;
+}
+
+.react-datalist-input__container {
+    font-family: 'Formula1-Regular', sans-serif;
+}
+
+.input{
+    margin-top: 0;
+    max-width: 100%;
+    font-family: 'Formula1-Regular', sans-serif;
+    border-radius: 5px;
+    width: 250%;
+    height: 35px;
+    font-size: 1rem;
+}
+
+.input-title {
+    font-family: 'Formula1-Regular', sans-serif;
+    font-size: 1.17rem;
+    font-weight: bold;
+    margin: 0;
+
+}
+
+.react-datalist-input__textbox {
+    font-family: 'Formula1-Regular', sans-serif;
+    height: 35px;
+    font-size: 1rem;
+}
+
+.selector-label {
+    font-family: 'Formula1-Regular', sans-serif;
+}
+
+.react-datalist-input__label {
+    font-family: 'Formula1-Regular', sans-serif;
+    font-size: 1.17rem;
+    font-weight: bold;
+}
