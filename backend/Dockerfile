@@ -22,4 +22,6 @@ RUN npm install
 
 WORKDIR /app-backend/api
 
+EXPOSE 5000
+
 CMD ["node", "server.js"]

@@ -1,5 +1,7 @@
+import React from 'react'
 import { useEffect, useState } from 'react'
 import '../css/driversDisplay.css'
+import PropTypes from 'prop-types'
 
 // Stats to filter
 const STATS_TO_FILTER = ['name', 'nationality_country_id', 'date_of_birth', 'total_race_wins', 'total_podiums']
@@ -15,6 +17,11 @@ const STATS_LABELS = {
 const URL_SEARCH_BY_NATIONALITY = 'http://localhost:5000/drivers/nationalities/'
 const URL_SEARCH_BY_NAME = 'http://localhost:5000/drivers/names/'
 const GO_TO_INDIVIDUAL_DRIVER = 'http://localhost:5173/drivers/'
+
+DriverStats.propTypes = {
+  selectedNationality: PropTypes.string.isRequired,
+  selectedName: PropTypes.string.isRequired,
+}
 
 export function DriverStats({ selectedNationality, selectedName }) {
   const [driverStats, setDriverStats] = useState([])
