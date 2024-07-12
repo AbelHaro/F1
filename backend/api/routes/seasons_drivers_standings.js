@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import { db } from '../dbconnection.js'
+import { db } from '../../database/dbconnection.js'
 
 export const  seasonsDriversStandingsRouter = Router()
 
+// Search all drivers standings
 seasonsDriversStandingsRouter.get('/', (req, res) => {
     console.log(`${new Date} DEBUG: GET /seasons_drivers_standings`)
     db.all('SELECT * FROM season_driver_standing;', (err, rows) => {
@@ -14,6 +15,7 @@ seasonsDriversStandingsRouter.get('/', (req, res) => {
     })
 })
 
+// Search drivers standings by year
 seasonsDriversStandingsRouter.get('/:year', (req, res) => {
     console.log(`${new Date()} DEBUG: GET /seasons_drivers_standings/${req.params.year}`)
     const { year } = req.params

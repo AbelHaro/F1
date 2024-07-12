@@ -2,7 +2,7 @@ import { createRequire } from 'module'
 const require = createRequire(import.meta.url)
 const sqlite3 = require('sqlite3').verbose()
 
-export const db = new sqlite3.Database('../database/f1db.db', (err) => {
+export const db = new sqlite3.Database('./f1db.db', (err) => {
     if (err) {
       return console.error(err.message);
     }

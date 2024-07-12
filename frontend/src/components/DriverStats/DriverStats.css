@@ -3,59 +3,50 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 70%; /* Ensure the main container takes the full width */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if they overflow */
-    margin: 0 auto; /* Center align horizontally */
+    width: 80%;
+    margin: 0 auto;
 }
 
 .header-row {
+    font-size: 1.3rem;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    width: 100%; /* Ensure the header row takes the full width */
-    margin-top: 10px; /* Add some space between header row and drivers section */
-    margin-bottom: 10px; /* Add some space between header row and drivers section */
-    height: 50px;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 50px;;
 }
 
 .drivers-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Ensure the drivers section takes the full width */
+    width: 100%;
 }
 
 .driver-row {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    width: 100%; /* Ensure each driver row takes the full width */
-    margin-bottom: 5px; /* Add some space between driver rows */
+    width: 100%;
+    margin-bottom: 5px;
 }
 
-.stat-container {
-    width: 20%; /* Set the width to 20% for each individual stat container */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align content to the left */
-    justify-content: center;
+.stat-label, .stat-value {
+    width: 20%;
+    font-size: 1em;
+    margin: 0px;
+    text-align: center;
     background-color: #ffffff;
     padding: 4px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    box-sizing: border-box;
 }
 
-.stat-label {
-    font-size: 0.7em;
-    font-weight: bold;
-    margin: 2px;
-    text-align: center;
-    padding-left: 50px;
+.no-blue {
+    text-decoration: none;
+    color: #000;
 }
 
-.stat-value {
-    font-size: 0.7em;
-    margin: 0px;
-    width: 100%; /* Ensure the stat text takes full width of the individual stat */
-    text-align: left; /* Align text to the left */
-    padding-left: 50px; /* Add some padding to the left */
+.no-blue:hover {
+    scale: 1.1;
 }

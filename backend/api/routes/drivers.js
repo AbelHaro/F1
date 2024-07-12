@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import { db } from '../dbconnection.js'
+import { db } from '../../database/dbconnection.js'
 
 export const driversRouter = Router()
 
+// Search all drivers by nationality
 driversRouter.get('/nationalities/:nationality', (req, res) => {
     const { nationality } = req.params
 
@@ -28,6 +29,7 @@ driversRouter.get('/nationalities/:nationality', (req, res) => {
     }
 })
 
+// Search driver by name
 driversRouter.get('/names/:name', (req, res) => {
     const { name } = req.params
 

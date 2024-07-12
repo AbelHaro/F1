@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import '../css/driversDisplay.css'
+import './DriverStats.css'
 import PropTypes from 'prop-types'
 
 // Stats to filter
@@ -64,7 +64,7 @@ export function DriverStats({ selectedNationality, selectedName }) {
 
   // Mapping driver stats outside of return
   const allDrivers = driverStats.map((driver, index) => (
-    <div key={`${driver.id}-${index}`} className="driver-row">
+    <div key={`${driver.id}-${index}`} className='driver-row'>
       {STATS_TO_FILTER.map(stat => (
         <p key={`${driver.id}-${stat}`} className='stat-value'>
           {stat === 'name' ? (

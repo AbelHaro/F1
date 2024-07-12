@@ -1,8 +1,9 @@
 import { Router } from 'express'
-import { db } from '../dbconnection.js'
+import { db } from '../../database/dbconnection.js'
 
 export const nationalitiesRouter = Router()
 
+// Search all nationalities who have drivers
 nationalitiesRouter.get('/', (req, res) => {
     
     console.log(`${new Date()} DEBUG: GET /nationalities/all`)
@@ -12,7 +13,6 @@ nationalitiesRouter.get('/', (req, res) => {
             console.log(err)
             return res.status(500).send('Internal Server Error')
         }
-        console.log(rows)
         res.json(rows.map(row => ({ id: row.id, name: row.id })))
     })
 })
