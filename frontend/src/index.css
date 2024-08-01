@@ -1,23 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: 'Formula1-Regular', sans-serif;
+  font-family: "Formula1-Regular", sans-serif;
   background-color: #f4f4f4;
   overflow-y: scroll;
 }
 
 @font-face {
-  font-family: 'Formula1-Bold';
-  src: url(./fonts/Formula1-Bold.otf) format('opentype');
+  font-family: "Formula1-Bold";
+  src: url(./fonts/Formula1-Bold.otf) format("opentype");
 }
 
 @font-face {
-  font-family: 'Formula1-Regular';
-  src: url(./fonts/Formula1-Regular.otf) format('opentype');
+  font-family: "Formula1-Regular";
+  src: url(./fonts/Formula1-Regular.otf) format("opentype");
 }
 
 @font-face {
-  font-family: 'Formula1-Wide';
-  src: url(./fonts/Formula1-Wide.otf) format('opentype');
+  font-family: "Formula1-Wide";
+  src: url(./fonts/Formula1-Wide.otf) format("opentype");
 }
