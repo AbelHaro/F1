@@ -2,11 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { DriverStats } from "../DriverStats/DriverStats.jsx";
 import DatalistInput from "react-datalist-input"; //https://github.com/andrelandgraf/react-datalist-input
+import { URL } from "../../url.js";
 import "react-datalist-input/dist/styles.css";
 import "./Drivers.css";
 
-const URL_ALL_DRIVERS = "http://localhost:5000/drivers/nationalities/all";
-const URL_NATIONALITIES = "http://localhost:5000/nationalities";
+const URL_ALL_DRIVERS = `${URL}/drivers/nationalities/all`;
+const URL_NATIONALITIES = `${URL}/nationalities`;
 
 export function Drivers() {
   const [nationalities, setNationalities] = useState([]);

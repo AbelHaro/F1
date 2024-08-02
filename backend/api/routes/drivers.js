@@ -4,6 +4,18 @@ import { db } from "../dbconnection.js";
 export const driversRouter = Router();
 
 // Search all drivers by nationality
+driversRouter.get("/", (req, res) => {
+  console.log(`${new Date()} DEBUG GET /drivers/`);
+
+  db.all("SELECT * FROM driver;", (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send("Internal Server Error");
+    }
+    return res.json(rows);
+  });
+});
+
 driversRouter.get("/nationalities/:nationality", (req, res) => {
   const { nationality } = req.params;
 

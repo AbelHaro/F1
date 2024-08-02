@@ -6,7 +6,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint"
+    "lint": "eslint",
+    "up-local": "cd api && node --watch server.js",
+    "up-docker": "chmod +x scripts/backend-up-docker.sh && ./scripts/backend-up-docker.sh",
+    "down-docker": "chmod +x scripts/backend-down-docker.sh && ./scripts/backend-down-docker.sh",
+    "inspect-docker": "chmod +x scripts/backend-inspect-docker.sh && ./scripts/backend-inspect-docker.sh"
   },
   "author": "",
   "license": "ISC",

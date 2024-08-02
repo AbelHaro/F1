@@ -7,9 +7,9 @@ import { DriverStanding } from "../DriverStanding/DriverStanding.jsx";
 import { IndividualDriver } from "../IndividualDriver/IndividualDriver.jsx";
 
 export function App() {
+  //<img src="/public/1.webp" alt="F1" className="w-full h-full" />
   return (
     <BrowserRouter>
-      <img src="/public/1.webp" alt="F1" className="w-full h-full" />
       <Navbar />
       <Routes>
         <Route path="/" element={<h1>Home</h1>} />
