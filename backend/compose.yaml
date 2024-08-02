@@ -1,13 +1,9 @@
-version: '0.1'
+version: "3.8"
+
 services:
-  backend:
+  f1-sqlite3-server:
     build: .
+    container_name: f1-sqlite3-server
     ports:
       - "5000:5000"
-    container_name: f1-sqlite3-server
-    image: f1-sqlite3-server
-    develop:
-      watch:
-        - action: sync
-          path: ./
-          target: /
+    restart: unless-stopped
