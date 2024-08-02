@@ -4,7 +4,9 @@ import { driversRouter } from "./routes/drivers.js";
 import { seasonsConstructorsStandingsRouter } from "./routes/seasons_constructors_standing.js";
 import { seasonsDriversStandingsRouter } from "./routes/seasons_drivers_standings.js";
 import { nationalitiesRouter } from "./routes/nationalities.js";
+import { ping } from "./ping.js";
 
+ping();
 const app = express();
 app.disable("x-powered-by");
 app.use(corsMiddleware());
