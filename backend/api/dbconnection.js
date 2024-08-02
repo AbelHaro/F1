@@ -2,7 +2,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const sqlite3 = require("sqlite3").verbose();
 
-const dbPath = "../database/f1db.db";
+const dbPath = "./f1db.db";
 
 export const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {

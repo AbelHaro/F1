@@ -8,10 +8,10 @@ RUN apt install npm -y
 
 # Create a directory for the app
 RUN mkdir /app-backend
-RUN mkdir /app-backend/database
+# RUN mkdir /app-backend/database
 RUN mkdir /app-backend/api
 
-COPY ./database /app-backend/database
+# COPY ./database /app-backend/database
 COPY ./api /app-backend/api
 
 COPY package.json /app-backend/package.json
