@@ -9,7 +9,8 @@ const app = express();
 app.disable("x-powered-by");
 app.use(corsMiddleware());
 app.use(express.json());
-const PORT = 5000;
+// eslint-disable-next-line no-undef
+const PORT = process.env.PORT || 5000;
 
 app.get("/", (_, res) => {
   res.json({ message: "Hello from server!" });
