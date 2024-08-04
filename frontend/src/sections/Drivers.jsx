@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { useEffect, useState } from "react";
 import { DriverStats } from "../components/DriverStats.jsx";
 import DatalistInput from "react-datalist-input"; //https://github.com/andrelandgraf/react-datalist-input
@@ -6,7 +6,7 @@ import { URL } from "../url.js";
 import "react-datalist-input/dist/styles.css";
 import { SectionContainer } from "../components/SectionContainer.jsx";
 
-const URL_ALL_DRIVERS = `${URL}/drivers/nationalities/all`;
+const URL_ALL_DRIVERS = `${URL}/drivers`;
 const URL_NATIONALITIES = `${URL}/nationalities`;
 
 export function Drivers() {
@@ -38,7 +38,7 @@ export function Drivers() {
 
   useEffect(() => {
     if (drivers.length === 0) {
-      fetch(`${URL_ALL_DRIVERS}`)
+      fetch(URL_ALL_DRIVERS)
         .then((response) => response.json())
         .then((drivers) => {
           const modifiedDrivers = drivers.map((driver) => ({

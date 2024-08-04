@@ -7,10 +7,10 @@ export const driversRouter = Router();
 driversRouter.get("/", (req, res) => {
   console.log(`${new Date()} DEBUG GET /drivers/`);
 
-  db.all("SELECT * FROM driver;", (err, rows) => {
+  db.all("SELECT id, name FROM driver;", (err, rows) => {
     if (err) {
       console.log(err);
-      res.status(500).send("Internal Server Error");
+      res.status(500).send("Error in GET /drivers/ endpoint");
     }
     return res.json(rows);
   });
@@ -24,21 +24,24 @@ driversRouter.get("/nationalities/:nationality", (req, res) => {
   );
 
   if (nationality === "all") {
-    db.all("SELECT * FROM driver;", (err, rows) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send("Internal Server Error");
+    db.all(
+      "SELECT id, name, nationality_country_id, date_of_birth, total_race_wins, total_podiums, total_race_entries  FROM driver;",
+      (err, rows) => {
+        if (err) {
+          console.log(err);
+          res.status(500).send("Error in GET /drivers/nationalities/ endpoint");
+        }
+        return res.json(rows);
       }
-      return res.json(rows);
-    });
+    );
   } else {
     db.all(
-      "SELECT * FROM driver WHERE nationality_country_id = ?",
+      "SELECT id, name, nationality_country_id, date_of_birth, total_race_wins, total_podiums, total_race_entries FROM driver WHERE nationality_country_id = ?",
       [nationality],
       (err, rows) => {
         if (err) {
           console.log(err);
-          res.status(500).send("Internal Server Error");
+          res.status(500).send("Error in GET /drivers/nationalities/ endpoint");
         } else {
           return res.json(rows);
         }

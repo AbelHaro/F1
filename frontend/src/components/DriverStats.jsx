@@ -34,7 +34,9 @@ export function DriverStats({ selectedNationality, selectedName }) {
 
   useEffect(() => {
     if (selectedNationality.length > 0) {
-      console.log(`URL TO FETCH:${URL_SEARCH_BY_NATIONALITY}${selectedName}`);
+      console.log(
+        `URL TO FETCH:${URL_SEARCH_BY_NATIONALITY}${selectedNationality}`
+      );
       fetch(`${URL_SEARCH_BY_NATIONALITY}${selectedNationality}`)
         .then((response) => response.json())
         .then((data) => setDriverStats(data))
