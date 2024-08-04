@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import "./DriverStats.css";
-import { URL } from "../../url.js";
+import { URL } from "../url.js";
 import PropTypes from "prop-types";
 
 // Stats to filter
@@ -66,35 +65,44 @@ export function DriverStats({ selectedNationality, selectedName }) {
 
   // Mapping stats labels outside of return
   const statsLabels = STATS_TO_FILTER.map((stat) => (
-    <p key={stat} className="stat-label">
+    <div key={stat} className="flex-1 text-center text-2xl font-bold p-1.5">
       {STATS_LABELS[stat]}
-    </p>
+    </div>
   ));
 
-  // Mapping driver stats outside of return
   const allDrivers = driverStats.map((driver, index) => (
-    <div key={`${driver.id}-${index}`} className="driver-row">
+    <div
+      key={`${driver.id}-${index}`}
+      className="flex justify-center w-full mb-1.5"
+    >
       {STATS_TO_FILTER.map((stat) => (
-        <p key={`${driver.id}-${stat}`} className="stat-value">
+        <div
+          key={`${driver.id}-${stat}`}
+          className="flex-1 text-lg text-center p-1.5"
+        >
           {stat === "name" ? (
             <a
               href={`${GO_TO_INDIVIDUAL_DRIVER}${driver.id}`}
-              className="no-blue"
+              className="text-black no-underline hover:scale-110 transition-transform"
             >
               {driver[stat]}
             </a>
           ) : (
             formatStatValue(stat, driver[stat], driver["total_race_entries"])
           )}
-        </p>
+        </div>
       ))}
     </div>
   ));
 
   return (
-    <div className="main-container">
-      <header className="header-row">{statsLabels}</header>
-      <section className="drivers-section">{allDrivers}</section>
-    </div>
+    <main className="flex flex-col items-center justify-center w-4/5 mx-auto flex-wrap">
+      <header className="flex justify-center w-full mt-5 h-12">
+        {statsLabels}
+      </header>
+      <section className="flex flex-col items-center w-full">
+        {allDrivers}
+      </section>
+    </main>
   );
 }

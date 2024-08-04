@@ -1,10 +1,9 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { DriverStats } from "../DriverStats/DriverStats.jsx";
+import { DriverStats } from "./DriverStats.jsx";
 import DatalistInput from "react-datalist-input"; //https://github.com/andrelandgraf/react-datalist-input
-import { URL } from "../../url.js";
+import { URL } from "../url.js";
 import "react-datalist-input/dist/styles.css";
-import "./Drivers.css";
 
 const URL_ALL_DRIVERS = `${URL}/drivers/nationalities/all`;
 const URL_NATIONALITIES = `${URL}/nationalities`;
@@ -84,32 +83,55 @@ export function Drivers() {
   ));
 
   return (
-    <main className="flex flex-col align-middle w-full mt-10">
-      <div className="flex gap-5 justify-center mb-5">
-        <div>
-          <DatalistInput
-            placeholder="Driver name"
-            label="Search driver"
-            onSelect={handleChangeSelectedDriver}
-            items={drivers}
-            value={selectedName}
-          />
+    <>
+      <main className="flex flex-col align-middle w-full mt-10">
+        <div className="flex gap-5 justify-center mb-5">
+          <div>
+            <DatalistInput
+              placeholder="Driver name"
+              label="Search driver"
+              onSelect={handleChangeSelectedDriver}
+              items={drivers}
+              value={selectedName}
+            />
+          </div>
+          <div>
+            <h3 className="text-xl font-bold">Choose nationality</h3>
+            <select
+              className="h-[35px] w-80 border border-gray-500/30 rounded-md"
+              onChange={handleChangeSelectedNationality}
+              value={selectedNationality}
+            >
+              {nationalitiesOptions}
+            </select>
+          </div>
         </div>
-        <div>
-          <h3 className="text-xl font-bold">Choose nationality</h3>
-          <select
-            className="h-[35px] border border-gray-500/30 rounded-md"
-            onChange={handleChangeSelectedNationality}
-            value={selectedNationality}
-          >
-            {nationalitiesOptions}
-          </select>
-        </div>
-      </div>
-      <DriverStats
-        selectedNationality={selectedNationality}
-        selectedName={selectedName}
-      />
-    </main>
+        <DriverStats
+          selectedNationality={selectedNationality}
+          selectedName={selectedName}
+        />
+      </main>
+      <style>
+        {`
+          .react-datalist-input__container {
+            font-family: "Formula1-Regular", sans-serif;
+            height: 35px;
+          }
+
+          .react-datalist-input__textbox {
+            font-family: "Formula1-Regular", sans-serif;
+            height: 35px;
+            font-size: 1rem;
+          }
+
+          .react-datalist-input__label {
+            font-family: "Formula1-Regular", sans-serif;
+            font-size: 1.25rem /* 20px */;
+            line-height: 1.75rem;
+            font-weight: bold;
+          }  
+        `}
+      </style>
+    </>
   );
 }
