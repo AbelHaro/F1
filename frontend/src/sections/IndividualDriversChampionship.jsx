@@ -2,6 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { URL } from "../url";
+import { TableHeader } from "../components/TableHeader";
+import { SectionContainer } from "../components/SectionContainer";
 
 const STATS_TO_FILTER = [
   "position_display_order",
@@ -18,7 +20,7 @@ const STATS_LABELS = {
 
 const URL_SEASON_DRIVERS_STANDINGS = `${URL}/seasons_drivers_standings/`;
 
-export function DriversChampionship() {
+export function IndividualDriversChampionship() {
   const [drivers, setDrivers] = useState([]);
   const { year } = useParams();
 
@@ -29,12 +31,6 @@ export function DriversChampionship() {
   }, [year]);
 
   const maxPoints = Math.max(...drivers.map((driver) => driver.points));
-
-  const statsLabels = STATS_TO_FILTER.map((stat) => (
-    <div key={stat} className="flex-1 text-center text-2xl font-bold">
-      {STATS_LABELS[stat]}
-    </div>
-  ));
 
   const allDrivers = drivers.map((driver) => (
     <div key={driver.driver_id} className="flex justify-center w-full mb-1.5">
@@ -52,13 +48,14 @@ export function DriversChampionship() {
   ));
 
   return (
-    <main className="flex flex-col items-center justify-center w-3/5 mx-auto">
-      <header className="flex justify-center w-full mt-5 h-12">
-        {statsLabels}
-      </header>
+    <SectionContainer className="w-3/5">
+      <TableHeader
+        stats_labels={STATS_LABELS}
+        stats_to_filter={STATS_TO_FILTER}
+      />
       <section className="flex flex-col items-center w-full">
         {allDrivers}
       </section>
-    </main>
+    </SectionContainer>
   );
 }

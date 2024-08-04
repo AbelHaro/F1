@@ -1,9 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { useEffect, useState } from "react";
-import { DriverStats } from "./DriverStats.jsx";
+import { DriverStats } from "../components/DriverStats.jsx";
 import DatalistInput from "react-datalist-input"; //https://github.com/andrelandgraf/react-datalist-input
 import { URL } from "../url.js";
 import "react-datalist-input/dist/styles.css";
+import { SectionContainer } from "../components/SectionContainer.jsx";
 
 const URL_ALL_DRIVERS = `${URL}/drivers/nationalities/all`;
 const URL_NATIONALITIES = `${URL}/nationalities`;
@@ -84,7 +85,7 @@ export function Drivers() {
 
   return (
     <>
-      <main className="flex flex-col align-middle w-full mt-10">
+      <SectionContainer>
         <div className="flex gap-5 justify-center mb-5">
           <div>
             <DatalistInput
@@ -110,7 +111,7 @@ export function Drivers() {
           selectedNationality={selectedNationality}
           selectedName={selectedName}
         />
-      </main>
+      </SectionContainer>
       <style>
         {`
           .react-datalist-input__container {

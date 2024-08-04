@@ -1,13 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const TableHeader = ({ labels }) => (
-  <header className="flex justify-center w-full mt-5 h-12">
-    {labels.map((label) => (
-      <div key={label} className="flex-1 text-center text-2xl font-bold">
-        {label}
-      </div>
-    ))}
-  </header>
-);
+TableHeader.propTypes = {
+  stats_labels: PropTypes.object.isRequired,
+  stats_to_filter: PropTypes.array.isRequired,
+};
+
+export function TableHeader({ stats_labels, stats_to_filter }) {
+  return (
+    <header className="flex justify-center w-full h-12">
+      {stats_to_filter.map((label) => (
+        <div key={label} className="flex-1 text-center text-2xl font-bold">
+          {stats_labels[label]}
+        </div>
+      ))}
+    </header>
+  );
+}
 
 export default TableHeader;
