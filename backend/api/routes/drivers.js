@@ -56,12 +56,16 @@ driversRouter.get("/names/:name", (req, res) => {
 
   console.log(`${new Date()} DEBUG GET /drivers/names/ name: ${name}`);
 
-  db.all("SELECT * FROM driver WHERE id = ?", [name], (err, rows) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send("Internal Server Error");
-    } else {
-      return res.json(rows);
+  db.all(
+    "SELECT id, name, nationality_country_id, date_of_birth, total_race_wins, total_podiums, total_race_entries FROM driver WHERE id = ?",
+    [name],
+    (err, rows) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Internal Server Error");
+      } else {
+        return res.json(rows);
+      }
     }
-  });
+  );
 });
