@@ -69,3 +69,16 @@ driversRouter.get("/names/:name", (req, res) => {
     }
   );
 });
+
+driversRouter.get("/test", (req, res) => {
+  db.get(
+    `SELECT constructor_id FROM race_result WHERE year=2024 AND driver_id="max-verstappen";`,
+    (err, rows) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send("Error in GET /drivers/ endpoint");
+      }
+      return res.json(rows);
+    }
+  );
+});

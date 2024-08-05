@@ -4,6 +4,7 @@ import { driversRouter } from "./routes/drivers.js";
 import { seasonsConstructorsStandingsRouter } from "./routes/seasons_constructors_standing.js";
 import { seasonsDriversStandingsRouter } from "./routes/seasons_drivers_standings.js";
 import { nationalitiesRouter } from "./routes/nationalities.js";
+import { racesRouter } from "./routes/races.js";
 import { ping } from "./ping.js";
 
 ping();
@@ -25,6 +26,8 @@ app.use("/seasons_constructors_standings", seasonsConstructorsStandingsRouter);
 app.use("/seasons_drivers_standings", seasonsDriversStandingsRouter);
 
 app.use("/nationalities", nationalitiesRouter);
+
+app.use("/races", racesRouter);
 
 app.listen(PORT, () =>
   console.log(`Server running on port: http://localhost:${PORT}`)

@@ -1,4 +1,6 @@
 import React from "react";
+import { CurrentSeasonChampionship } from "../components/CurrentSeasonChampionship";
+import { LastRaceResults } from "../components/LastRaceResults";
 
 export function Home() {
   return (
@@ -7,7 +9,14 @@ export function Home() {
       <p className="text-center mt-4">
         This is a simple app to show some stats about Formula 1.
       </p>
-      <img src="/1.webp" alt="F1" className="w-3/5 h-3/5" />
+      <section className="mt-8 flex flex-row justify-between w-full px-60 md:px-8 lg:px-16 gap-8">
+        <div className="flex-1 text-f1-red">
+          <CurrentSeasonChampionship />
+        </div>
+        <div className="flex-1">
+          <LastRaceResults />
+        </div>
+      </section>
     </main>
   );
 }
