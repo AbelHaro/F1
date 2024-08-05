@@ -22,7 +22,7 @@ export function Navbar() {
         rel="noreferrer"
         className="hover:scale-110"
       >
-        <img src="src/assets/github.svg" alt="GitHub Logo" className="size-8" />
+        <img src="icons/github.svg" alt="GitHub Logo" className="size-8" />
       </a>
     </nav>
   );
